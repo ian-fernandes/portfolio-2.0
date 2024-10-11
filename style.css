@@ -796,7 +796,7 @@ form button:hover {
 .footer {
     background-color: var(--fundo-light);
     color: var(--cor-secundaria);
-    padding: 40px 15%;
+    padding: 15px 15%;
     text-align: center;
     border-top: 2px solid var(--cor-destaque);
 }
