@@ -38,7 +38,7 @@ body {
 header {
     background: linear-gradient(to right, #0d80c0, #0a6fa7, #0d5e8e, #0a4d75, #0d3b5c, #0a2a43, #0d1f33, #0a0a0a);
     /* background-color: var(--fundo-light); */
-    padding: 20px 15%; /* Mantém o cabeçalho com a mesma largura das seções */
+    padding: 5px 15%; /* Mantém o cabeçalho com a mesma largura das seções */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,7 +48,7 @@ header {
 .header__title {
     font-family: var(--font-primaria); /* Fonte Marvel */
     color: var(--cor-destaque);
-    font-size: 2rem;
+    font-size: 1.8rem;
     letter-spacing: 1px;
 }
 
@@ -124,37 +124,40 @@ section h2 {
 .apresentacao__conteudo {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* Ajusta o espaço entre a imagem e o texto */
     gap: 40px;
     padding: 50px 0;
-    flex-wrap: wrap; /* Flex-wrap para melhor ajuste em telas menores */
+    max-width: 1200px; /* Limite de largura para manter o conteúdo centralizado */
+    margin: 0 auto; /* Centraliza o conteúdo na página */
+    flex-wrap: nowrap; /* Impede que a imagem e o texto sejam empilhados em telas grandes */
 }
 
 .apresentacao__foto {
-    width: 200px; /* Foto maior */
-    height: 200px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     border: 4px solid var(--cor-destaque);
+    flex-shrink: 0; /* Garante que a imagem não diminua */
 }
 
 .apresentacao__titulo {
-    font-size: 2.2em; /* Tamanho do título */
-    font-weight: bold; /* Negrito para o título */
-    font-family: var(--font-primaria); /* Fonte desejada */
-    margin-bottom: 10px; /* Espaço abaixo do título */
-    text-align: left; /* Alinhamento à esquerda */
+    font-size: 2.2em;
+    font-weight: bold;
+    font-family: var(--font-primaria);
+    margin-bottom: 10px;
+    text-align: left;
 }
 
 .apresentacao__texto {
-    max-width: 800px; /* Limite da largura para manter o layout */
-    font-size: 1.3em; /* Tamanho do texto */
-    font-family: var(--font-secundaria); /* Fonte desejada */
-    line-height: 1.2; /* Espaçamento entre as linhas */
-    color: var(--cor-secundaria); /* Cor do texto */
-    text-align: left; /* Alinhamento à esquerda */
+    max-width: 800px;
+    font-size: 1.2em;
+    font-family: var(--font-secundaria);
+    line-height: 1.1;
+    color: var(--cor-secundaria);
+    text-align: left;
 }
 
-
+/* Links de apresentação */
 .apresentacao__links {
     margin-top: 15px;
 }
@@ -163,7 +166,7 @@ section h2 {
     margin-right: 20px;
     color: var(--cor-destaque);
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 }
 
 .apresentacao__links a:hover {
@@ -171,9 +174,28 @@ section h2 {
 }
 
 /* Media Queries para responsividade */
+@media (max-width: 1024px) {
+    .apresentacao__conteudo {
+        flex-wrap: wrap; /* Permite o empilhamento em telas menores */
+        justify-content: center; /* Centraliza o conteúdo em telas menores */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .apresentacao__foto {
+        width: 200px;
+        height: 200px;
+    }
+
+    .apresentacao__texto {
+        max-width: 100%; /* Remove a limitação de largura em telas menores */
+        text-align: center; /* Centraliza o texto em telas menores */
+    }
+}
+
 @media (max-width: 768px) {
     .apresentacao__conteudo {
-        flex-direction: column; /* Alinhamento vertical em telas menores */
+        flex-direction: column; /* Empilha a imagem e o texto verticalmente */
+        padding: 20px;
     }
 
     .apresentacao__foto {
@@ -181,12 +203,8 @@ section h2 {
         height: 150px;
     }
 
-    .apresentacao__texto p {
+    .apresentacao__texto {
         font-size: 1.1rem;
-    }
-
-    .apresentacao__texto p strong {
-        font-size: 1.4rem;
     }
 
     .nav-menu__link {
@@ -204,18 +222,15 @@ section h2 {
         height: 120px;
     }
 
-    .apresentacao__texto p {
+    .apresentacao__texto {
         font-size: 1rem;
-    }
-
-    .apresentacao__texto p strong {
-        font-size: 1.2rem;
     }
 
     .nav-menu__link {
         font-size: 1rem;
     }
 }
+
 
 /* Seção Sobre Mim */
 .section-about {
@@ -227,7 +242,7 @@ section h2 {
 
 .section-about__title {
     font-family: var(--font-primaria);
-    font-size: 3rem;
+    font-size: 2.8rem;
     color: var(--cor-destaque);
     text-align: center;
     margin-bottom: 40px;
@@ -237,7 +252,7 @@ section h2 {
 .section-about__title::after {
     content: '';
     width: 50px;
-    height: 3px;
+     height: 3px; /*LINHA QUE TEM EM BAIXO DO SOBRE MIM */
     background-color: var(--cor-destaque);
     position: absolute;
     left: 50%;
@@ -258,7 +273,7 @@ section h2 {
 }
 
 .section-about__text {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     line-height: 1.6;
     color: var(--cor-secundaria);
     text-align: justify;
@@ -340,6 +355,8 @@ section h2 {
     justify-content: space-around; /* Distribui os itens igualmente */
     align-items: center;
     gap: 40px; /* Ajusta o espaçamento entre os itens */
+    max-width: 1200px; /* Limita a largura máxima para manter as 2 linhas */
+    margin: 0 auto; /* Centraliza o conteúdo */
 }
 
 /* Estilo de cada skill */
@@ -348,7 +365,7 @@ section h2 {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    flex-basis: 150px; /* Garantir que cada skill ocupe o mesmo espaço */
+    flex-basis: calc(16.66% - 40px); /* 16.66% para ter 6 ícones por linha, menos o gap */
 }
 
 .skill__icon {
@@ -379,14 +396,25 @@ section h2 {
     }
 }
 
+@media (max-width: 1024px) {
+    .skill {
+        flex-basis: calc(33.33% - 40px); /* 3 ícones por linha em tablets */
+    }
+}
+
+
 
 /* Estilo da seção de hobbies */
 .section-hobbies {
-    padding: 60px 15%;
-    color: var(--cor-secundaria);
-    text-align: center;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    padding: 40px; /* Espaçamento interno ajustado */
+    /* background-color: rgba(255, 255, 255, 0.1); Fundo quase transparente */
+    border-radius: 15px;  /*Bordas arredondadas*/
+    /* box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); Sombra leve em branco */
+    /* border: 1px solid rgba(255, 255, 255, 0.3); Borda leve */
+    width: 80%;
+    margin: 0 auto; /* Centraliza a seção */
+    margin-top: 90px;
+    margin-bottom: 100px; /* Espaçamento inferior */
 }
 
 .section-hobbies__title {
@@ -399,23 +427,24 @@ section h2 {
 /* Estilo dos ícones de hobbies */
 .hobbies__icons {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap; /* Para quebrar linha conforme necessário */
+    justify-content: space-around; /* Distribui os ícones igualmente */
     align-items: center;
-    gap: 20px;
-    flex-wrap: wrap; /* Para ajustar em telas menores */
+    gap: 40px; /* Espaçamento entre os ícones */
+    max-width: 1200px; /* Limita a largura para organizar 2 linhas */
+    margin: 0 auto; /* Centraliza o conteúdo */
 }
 
 .hobby {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1 1 calc(33.33% - 40px); /* Dividindo em 3 ícones por linha */
-    max-width: 150px; /* Limita o tamanho dos ícones */
     text-align: center;
+    flex-basis: calc(16.66% - 40px); /* 16.66% para 6 ícones por linha */
 }
 
 .hobby__icon {
-    width: 80px; /* Ajuste o tamanho do ícone */
+    width: 80px; /* Ajuste do tamanho do ícone */
     height: 80px;
     margin-bottom: 10px;
 }
@@ -429,24 +458,30 @@ section h2 {
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
     .hobbies__icons {
-        gap: 15px;
+        justify-content: center; /* Centraliza os ícones em telas menores */
     }
 
     .hobby {
-        flex: 1 1 calc(50% - 20px); /* Dividindo em 2 ícones por linha */
+        flex-basis: calc(33.33% - 40px); /* 3 ícones por linha em telas menores */
+    }
+
+    .hobby__icon {
+        width: 60px; /* Reduz os ícones para telas menores */
+        height: 60px;
     }
 }
 
 @media (max-width: 480px) {
     .hobby {
-        flex: 1 1 100%; /* Ícones em uma única coluna */
+        flex-basis: calc(50% - 20px); /* 2 ícones por linha em telas muito pequenas */
     }
 
     .hobby__icon {
-        width: 60px; /* Tamanho menor dos ícones */
+        width: 60px; /* Ícones menores */
         height: 60px;
     }
 }
+
 
 /* Estilo da seção de formação */
 .section-formacao {
@@ -470,7 +505,7 @@ section h2 {
 .formacao__conteudo {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 60px;
     flex-wrap: wrap; /* Para ajuste em telas menores */
 }
 
@@ -552,8 +587,8 @@ section h2 {
 }
 
 .project {
-    width: 100%; /* Ajuste conforme necessário */
-    margin-bottom: 100px;
+    width: 100%;
+    margin-bottom: 60px; /* Aumentando o espaçamento entre os projetos */
     text-align: center;
     position: relative; /* Para facilitar o posicionamento */
 }
@@ -567,15 +602,13 @@ section h2 {
     box-shadow: 0 4px 15px rgba(239, 236, 236, 0.614); /* Sombra para destacar a imagem */
 }
 
+/* Título do projeto */
 .project-title {
-    position: absolute; /* Para centralizar na parte superior da imagem */
-    top: 10px; /* Distância do topo */
-    left: 50%; /* Para centralizar */
-    transform: translateX(-50%); /* Para ajustar a centralização */
-    background-color: rgba(0, 0, 0, 0.973); /* Fundo semi-transparente */
-    color: #fff; /* Cor do texto */
-    padding: 5px 10px; /* Espaçamento interno */
-    border-radius: 5px; /* Bordas arredondadas */
+    font-family: var(--font-primaria); /* Fonte do título */
+    color: var(--cor-destaque); /* Cor do título */
+    font-size: 2.8rem; /* Tamanho do título */
+    margin-bottom: 0px; /* Espaço abaixo do título */
+    text-align: center;
 }
 
 .project-buttons {
@@ -601,6 +634,38 @@ section h2 {
     color: #d4af37; /* Texto dourado no hover */
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5); /* Sombra ao passar o mouse */
 }
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .projects-container {
+        padding: 0 10%; /* Reduzindo o padding lateral em telas menores */
+    }
+
+    .project {
+        margin-bottom: 40px; /* Menor espaçamento em telas menores */
+    }
+
+    .project img {
+        max-width: 100%; /* Garantindo que a imagem se ajuste na tela */
+    }
+
+    .project-buttons {
+        flex-direction: column; /* Botões em coluna em telas menores */
+        align-items: center; /* Centralizando os botões */
+    }
+}
+
+@media (max-width: 480px) {
+    .project-title {
+        font-size: 1.5rem; /* Reduzindo o tamanho do título em telas pequenas */
+    }
+
+    .project-buttons .button {
+        font-size: 16px; /* Ajustando o tamanho da fonte dos botões */
+        padding: 10px 20px; /* Ajustando o tamanho dos botões */
+    }
+}
+
 
   
 /* Estilo da seção de contato */
