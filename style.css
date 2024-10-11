@@ -834,3 +834,86 @@ form button:hover {
         font-size: 0.8rem;
     }
 }
+
+/* ESTILIZAÇÃO COM JAVASCRIPT */
+/* 1. Efeito de Aparição Gradual */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 2. Botão "Voltar ao Topo" */
+.to-top-button {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    padding: 10px 15px;
+    background-color: var(--cor-destaque);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 2rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(100px);
+}
+
+.to-top-button.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.to-top-button:hover {
+    background-color: var(--cor-secundaria);
+}
+
+/* 4. Modo Claro/Escuro */
+.dark-mode {
+    background-color: #1a1a1a;
+    color: #f1f1f1;
+}
+
+.dark-mode .section-projects__title {
+    color: #d4af37; /* Mudando a cor do título no modo escuro */
+}
+
+.dark-mode .project-title {
+    color: #d4af37; /* Mudando a cor do título dos projetos */
+}
+
+.dark-mode .button {
+    background-color: #d4af37;
+    color: #000;
+}
+
+.dark-mode .to-top-button {
+    background-color: #d4af37;
+    color: #000;
+}
+
+/* Botão de alternância de modo claro/escuro */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: var(--cor-destaque);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    background-color: var(--cor-secundaria);
+}
