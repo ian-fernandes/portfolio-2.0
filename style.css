@@ -1,0 +1,771 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root {
+    --cor-primaria: #000000; /* Preto */
+    --cor-secundaria: #ffffff; /* Branco */
+    --cor-terciaria: #6a0dad; /* Roxo */
+    --cor-destaque: #ffd700; /* Dourado */
+    --cor-hover: #8a2be2; /* Roxo mais claro */
+    --fundo-dark: #1c1c1e; /* Cinza escuro */
+    --fundo-light: #2f2f2f; /* Cinza mais claro */
+    --font-primaria: 'Bebas Neue', sans-serif; /* Estilo de fonte inspirada na Marvel */
+    --font-secundaria: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg,      #000000, /* Preto absoluto */
+    #0a0a0a, /* Preto ligeiramente mais claro */
+    #1a1a1a, /* Outro tom de preto */
+    #000033, /* Azul escuro profundo */
+    #000066, /* Azul marinho */
+    #000080, /* Azul ainda escuro */
+    #0000a0, /* Azul médio */
+    #0000FF /* Azul padrão */); /* Gradiente do preto para o azul */
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-secundaria);
+    line-height: 1.6;
+    color: var(--cor-primaria); /* Cor do texto conforme definido */
+}
+
+/* Estilo do cabeçalho */
+header {
+    background: linear-gradient(to right, #0d80c0, #0a6fa7, #0d5e8e, #0a4d75, #0d3b5c, #0a2a43, #0d1f33, #0a0a0a);
+    /* background-color: var(--fundo-light); */
+    padding: 20px 15%; /* Mantém o cabeçalho com a mesma largura das seções */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo do título no cabeçalho */
+.header__title {
+    font-family: var(--font-primaria); /* Fonte Marvel */
+    color: var(--cor-destaque);
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+/* Estilo da navegação */
+.nav-menu__list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu__link {
+    color: var(--cor-secundaria);
+    font-family: var(--font-primaria); /* Fonte Marvel */
+    text-decoration: none;
+    font-size: 1.4rem;
+    position: relative;
+    transition: color 0.3s;
+}
+
+/* Efeito hover nas links */
+.nav-menu__link::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: var(--cor-destaque);
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+    color: var(--cor-hover);
+}
+
+.nav-menu__link:hover::before {
+    width: 100%;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 10%; /* Diminui a largura em telas menores */
+    }
+
+    .nav-menu__link {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 20px 5%;
+    }
+
+    .nav-menu__link {
+        font-size: 1rem;
+    }
+}
+
+/* Estilo das seções */
+section {
+    padding: 60px 15%;
+}
+
+section h2 {
+    font-family: var(--font-primaria);
+    color: var(--cor-destaque);
+    letter-spacing: 2px;
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Estilo da apresentação */
+.apresentacao__conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 50px 0;
+    flex-wrap: wrap; /* Flex-wrap para melhor ajuste em telas menores */
+}
+
+.apresentacao__foto {
+    width: 200px; /* Foto maior */
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid var(--cor-destaque);
+}
+
+.apresentacao__titulo {
+    font-size: 2.2em; /* Tamanho do título */
+    font-weight: bold; /* Negrito para o título */
+    font-family: var(--font-primaria); /* Fonte desejada */
+    margin-bottom: 10px; /* Espaço abaixo do título */
+    text-align: left; /* Alinhamento à esquerda */
+}
+
+.apresentacao__texto {
+    max-width: 800px; /* Limite da largura para manter o layout */
+    font-size: 1.3em; /* Tamanho do texto */
+    font-family: var(--font-secundaria); /* Fonte desejada */
+    line-height: 1.2; /* Espaçamento entre as linhas */
+    color: var(--cor-secundaria); /* Cor do texto */
+    text-align: left; /* Alinhamento à esquerda */
+}
+
+
+.apresentacao__links {
+    margin-top: 15px;
+}
+
+.apresentacao__links a {
+    margin-right: 20px;
+    color: var(--cor-destaque);
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.apresentacao__links a:hover {
+    color: var(--cor-hover);
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+    .apresentacao__conteudo {
+        flex-direction: column; /* Alinhamento vertical em telas menores */
+    }
+
+    .apresentacao__foto {
+        width: 150px;
+        height: 150px;
+    }
+
+    .apresentacao__texto p {
+        font-size: 1.1rem;
+    }
+
+    .apresentacao__texto p strong {
+        font-size: 1.4rem;
+    }
+
+    .nav-menu__link {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .apresentacao__conteudo {
+        padding: 20px 5%;
+    }
+
+    .apresentacao__foto {
+        width: 120px;
+        height: 120px;
+    }
+
+    .apresentacao__texto p {
+        font-size: 1rem;
+    }
+
+    .apresentacao__texto p strong {
+        font-size: 1.2rem;
+    }
+
+    .nav-menu__link {
+        font-size: 1rem;
+    }
+}
+
+/* Seção Sobre Mim */
+.section-about {
+    padding: 60px 15%;
+    background-color: var(--fundo-dark);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.section-about__title {
+    font-family: var(--font-primaria);
+    font-size: 3rem;
+    color: var(--cor-destaque);
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-about__title::after {
+    content: '';
+    width: 50px;
+    height: 3px;
+    background-color: var(--cor-destaque);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+}
+
+.section-about__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.section-about__text-content {
+    max-width: 800px;
+}
+
+.section-about__text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--cor-secundaria);
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.section-about__text strong {
+    color: var(--cor-hover);
+    font-weight: bold;
+}
+
+/* Animações sutis */
+.section-about__image img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+.section-about__text-content p:hover {
+    color: var(--cor-hover);
+    transition: color 0.3s ease-in-out;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .section-about__content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .section-about__image img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .section-about__text {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-about__title {
+        font-size: 2.5rem;
+    }
+
+    .section-about__image img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .section-about__text {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* Estilo da seção de skills */
+.section-skills {
+    padding: 40px; /* Espaçamento interno */
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo quase transparente */
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); /* Sombra leve em branco */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borda leve para dar definição */
+    width: 80%;
+    margin: 0 auto; /* Centraliza a seção */
+    margin-top: 90px;
+}
+
+.section-skills__title {
+    font-family: var(--font-primaria);
+    color: var(--cor-destaque);
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+}
+
+/* Container de ícones de skills */
+.skills__icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Distribui os itens igualmente */
+    align-items: center;
+    gap: 40px; /* Ajusta o espaçamento entre os itens */
+}
+
+/* Estilo de cada skill */
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-basis: 150px; /* Garantir que cada skill ocupe o mesmo espaço */
+}
+
+.skill__icon {
+    width: 80px; /* Tamanho do ícone */
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.skill p {
+    font-family: var(--font-secundaria);
+    font-size: 1.2rem;
+    color: var(--cor-secundaria);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .skills__icons {
+        justify-content: center; /* Centraliza os ícones em telas menores */
+    }
+
+    .skill {
+        flex-basis: 100px; /* Ajusta o tamanho dos itens para telas menores */
+    }
+
+    .skill__icon {
+        width: 60px; /* Reduz os ícones para telas menores */
+        height: 60px;
+    }
+}
+
+
+/* Estilo da seção de hobbies */
+.section-hobbies {
+    padding: 60px 15%;
+    color: var(--cor-secundaria);
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.section-hobbies__title {
+    font-family: var(--font-primaria);
+    color: var(--cor-destaque);
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+}
+
+/* Estilo dos ícones de hobbies */
+.hobbies__icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Para ajustar em telas menores */
+}
+
+.hobby {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 calc(33.33% - 40px); /* Dividindo em 3 ícones por linha */
+    max-width: 150px; /* Limita o tamanho dos ícones */
+    text-align: center;
+}
+
+.hobby__icon {
+    width: 80px; /* Ajuste o tamanho do ícone */
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.hobby p {
+    font-family: var(--font-secundaria);
+    font-size: 1.2rem;
+    color: var(--cor-secundaria);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .hobbies__icons {
+        gap: 15px;
+    }
+
+    .hobby {
+        flex: 1 1 calc(50% - 20px); /* Dividindo em 2 ícones por linha */
+    }
+}
+
+@media (max-width: 480px) {
+    .hobby {
+        flex: 1 1 100%; /* Ícones em uma única coluna */
+    }
+
+    .hobby__icon {
+        width: 60px; /* Tamanho menor dos ícones */
+        height: 60px;
+    }
+}
+
+/* Estilo da seção de formação */
+.section-formacao {
+    padding: 40px; /* Espaçamento interno */
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo quase transparente */
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); /* Sombra leve em branco */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borda leve para dar definição */
+    width: 80%;
+    margin: 0 auto; /* Centraliza a seção */
+}
+
+.section-formacao__title {
+    font-family: var(--font-primaria);
+    color: var(--cor-destaque);
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+}
+
+/* Estilo do conteúdo da formação */
+.formacao__conteudo {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap; /* Para ajuste em telas menores */
+}
+
+.formacao__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 calc(33.33% - 40px); /* Dividindo em 3 itens por linha */
+    text-align: center;
+}
+
+.formacao__imagem {
+    width: 100%;
+    max-width: 300px; /* Tamanho máximo das imagens */
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.formacao__curso {
+    font-family: var(--font-primaria);
+    font-size: 1.9rem;
+    color: var(--cor-destaque);
+    letter-spacing: 0.07em; /* Ajuste o valor conforme necessário */
+}
+
+.formacao__ano {
+    font-family: var(--font-secundaria);
+    font-size: 1.2rem;
+    color: var(--cor-secundaria);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .formacao__conteudo {
+        gap: 15px;
+    }
+
+    .formacao__item {
+        flex: 1 1 calc(50% - 20px); /* Dividindo em 2 itens por linha */
+    }
+
+    .formacao__imagem {
+        max-width: 250px; /* Ajusta o tamanho das imagens em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .formacao__item {
+        flex: 1 1 100%; /* Itens em uma única coluna */
+    }
+
+    .formacao__imagem {
+        max-width: 200px; /* Tamanho menor para imagens em dispositivos móveis */
+    }
+}
+
+/* Estilo da seção de projetos */
+.section-projects {
+    padding: 60px 15%;
+    color: var(--cor-secundaria);
+}
+
+.section-projects__title {
+    font-family: var(--font-primaria);
+    color: var(--cor-destaque);
+    text-align: center;
+    font-size: 2.8rem;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+.projects-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.project {
+    width: 100%; /* Ajuste conforme necessário */
+    margin-bottom: 100px;
+    text-align: center;
+    position: relative; /* Para facilitar o posicionamento */
+}
+
+.project img {
+    width: 100%;
+    max-width: 1500px; /* Limite de largura para as imagens */
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px; /* Adiciona bordas arredondadas */
+    box-shadow: 0 4px 15px rgba(239, 236, 236, 0.614); /* Sombra para destacar a imagem */
+}
+
+.project-title {
+    position: absolute; /* Para centralizar na parte superior da imagem */
+    top: 10px; /* Distância do topo */
+    left: 50%; /* Para centralizar */
+    transform: translateX(-50%); /* Para ajustar a centralização */
+    background-color: rgba(0, 0, 0, 0.973); /* Fundo semi-transparente */
+    color: #fff; /* Cor do texto */
+    padding: 5px 10px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+.project-buttons {
+    margin-top: 10px;
+}
+
+.project-buttons .button { 
+    text-decoration: none;
+    background-color: #d4af37; /* Cor dourada */
+    color: #000; /* Texto preto */
+    padding: 15px 30px; /* Aumentando o tamanho dos botões */
+    border-radius: 5px;
+    margin: 0 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-primaria);
+    font-size: 18px; /* Aumentando o tamanho da fonte */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.project-buttons .button:hover {
+    background-color: #000; /* Cor preta no hover */
+    color: #d4af37; /* Texto dourado no hover */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5); /* Sombra ao passar o mouse */
+}
+
+  
+/* Estilo da seção de contato */
+.secao-contato {
+    padding: 60px 15%;
+    color: var(--cor-secundaria);
+}
+
+.section-contact__title {
+    font-family: var(--font-primaria);
+    color: var(--cor-destaque);
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+}
+
+/* Estilo do formulário de contato */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto; /* Centraliza o formulário */
+}
+
+/* Floating Labels */
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.floating-label {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    font-size: 1.2rem;
+    color: #bbb;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+/* Quando o input está em foco ou preenchido */
+input:focus ~ .floating-label,
+textarea:focus ~ .floating-label,
+input:not(:placeholder-shown) ~ .floating-label,
+textarea:not(:placeholder-shown) ~ .floating-label {
+    top: -25px;
+    left: 10px;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+/* Estilo dos inputs e textarea */
+form input, form textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--fundo-dark);
+    border: 2px solid transparent; /* Definido como transparente para o gradiente funcionar */
+    border-radius: 5px;
+    font-family: var(--font-secundaria);
+    font-size: 1.2rem;
+    color: var(--cor-secundaria);
+
+    background-image: linear-gradient(var(--fundo-dark), var(--fundo-dark)), /* Fundo escuro */
+                      linear-gradient(45deg, #d4af37, #ff4d4d, #0073e6, #c0c0c0); /* Gradiente de borda */
+    background-origin: border-box; /* Define a área de origem do gradiente */
+    background-clip: padding-box, border-box; /* Clipes diferentes para o conteúdo e a borda */
+}
+
+/* Placeholder customizado */
+form input::placeholder, form textarea::placeholder {
+    color: #bbb;
+}
+
+/* Estilo do botão */
+form button {
+    padding: 15px;
+    background-color: #d4af37; /* Cor dourada para o botão */
+    color: #000; /* Cor preta para o texto */
+    border: none;
+    font-size: 2.1rem;
+    font-weight: 600;
+    font-family: var(--font-primaria);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Transição suave para o hover */
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: #000; /* Cor preta no hover */
+    color: #d4af37; /* Texto dourado no hover */
+    transform: scale(1.05); /* Efeito de ampliação no hover */
+}
+
+
+/* Media Queries para responsividade na seção de contato */
+@media (max-width: 768px) {
+    .contato {
+        padding: 40px 10%;
+    }
+
+    form {
+        max-width: 100%;
+    }
+
+    form input, form textarea, form button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contato {
+        padding: 30px 5%;
+    }
+
+    form input, form textarea {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    form button {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* Estilo do footer */
+.footer {
+    background-color: var(--fundo-light);
+    color: var(--cor-secundaria);
+    padding: 40px 15%;
+    text-align: center;
+    border-top: 2px solid var(--cor-destaque);
+}
+
+.footer__conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilo do parágrafo no footer */
+.footer p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Media Queries para responsividade no footer */
+@media (max-width: 768px) {
+    .footer {
+        padding: 30px 10%;
+    }
+
+    .footer p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 20px 5%;
+    }
+
+    .footer p {
+        font-size: 0.8rem;
+    }
+}
