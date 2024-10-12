@@ -52,20 +52,3 @@ projectButtons.forEach(button => {
         button.style.boxShadow = 'none';
     });
 });
-
-// 4. Modo Claro/Escuro
-const darkModeToggle = document.createElement('button');
-darkModeToggle.innerText = '🌙'; // Ícone de lua para o botão
-darkModeToggle.classList.add('dark-mode-toggle');
-document.body.appendChild(darkModeToggle);
-
-darkModeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    
-    // Altera o ícone de acordo com o modo
-    if (document.body.classList.contains('dark-mode')) {
-        darkModeToggle.innerText = '☀️'; // Ícone de sol
-    } else {
-        darkModeToggle.innerText = '🌙'; // Ícone de lua
-    }
-});
